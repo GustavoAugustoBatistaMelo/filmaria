@@ -49,8 +49,14 @@ export default function Filme(){
            < h1>{filme.nome}</h1>
                 <img src={filme.foto} alt={filme.nome}/>
 
-                <h3>Sinopse</h3>
+                <h3>Sinopse</h3>    
                 {filme.sinopse}
+                <div className='botoes'>
+                    <button onClick={()=>{}} >Salvar</button>
+                    <button Classname='botoes'>
+                        <a  target="blank" href={`https://youtube.com/results?search_query=${filme.nome} Trailer`}>Trailer</a>
+                    </button>
+                </div>
         </div>
     );
 }
