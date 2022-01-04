@@ -31,7 +31,31 @@ export default function Filme(){
             console.log('componente desmontado')
         }
 
+
     },[history,id])
+
+    function salvaFilme(){
+        const minhaLista = localStorage.getItem('filmes')
+
+        let filmesSalvos = JSON.parse(minhaLista) || [];
+
+        //se já estiver esse filme salvo com mesmo id verificar se já está salvo
+        const hasFilme = filmesSalvos.some((filmeSalvo) => filmeSalvo.id === filme.id)
+
+        if(hasFilme){
+            alert('Você já possui esse filme salvo.');
+            return;
+            //para a execução do codigo aqui.
+        }
+
+        //coloca o filme o array
+        filmesSalvos.push(filme);
+        localStorage.setItem('filmes',JSON.stringify(filmesSalvos))
+        alert('Filme salvo com sucesso')
+        
+
+
+    }
 
 
 
@@ -52,8 +76,8 @@ export default function Filme(){
                 <h3>Sinopse</h3>    
                 {filme.sinopse}
                 <div className='botoes'>
-                    <button onClick={()=>{}} >Salvar</button>
-                    <button Classname='botoes'>
+                    <button onClick={salvaFilme} >Salvar</button>
+                    <button className='botoes'>
                         <a  target="blank" href={`https://youtube.com/results?search_query=${filme.nome} Trailer`}>Trailer</a>
                     </button>
                 </div>
