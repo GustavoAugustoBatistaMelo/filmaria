@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Header from "./components/Header";
 import Filme from "./pages/Filme";
 import Favoritos from "./pages/Favoritos";
+import Error from './pages/Error'
 
 
 const Routes = () => {
@@ -16,6 +17,7 @@ const Routes = () => {
                     <Route exact path="/"  component={Home}/>
                     <Route exact path="/filme/:id" component={Filme} />
                     <Route excat path="/favoritos" component={Favoritos}/>
+                    <Route path="*" component={Error}/>
                 </Switch>
 
         </BrowserRouter>
